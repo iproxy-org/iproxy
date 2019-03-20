@@ -1,0 +1,16 @@
+<html>
+    <body>
+        正在跳转，请稍等...
+    </body>
+    <script>
+        fetch('https://gw.alipayobjects.com/os/iProxy/update.json?t=20190323').then(res => {
+            return res.json()
+        }).then(data => {
+            return fetch(data['darwin-x64-prod'].update)
+        }).then(res => {
+            return res.json()
+        }).then(data => {
+            location.href = data.url
+        })
+    </script>
+</html>
